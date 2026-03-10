@@ -1,0 +1,36 @@
+---
+title: 'Lesson 3: Practice: Create a taxi_zones_file asset'
+module: 'dagster_essentials'
+lesson: '3'
+---
+
+# Practice: Create a taxi_zones_file asset
+
+To practice what you’ve learned, create an asset in `trips.py` that:
+
+- Is named `taxi_zones_file`. This asset will contain a unique identifier and name for each part of NYC as a distinct taxi zone.
+- Uses the `requests` library to obtain [NYC Taxi Zones](https://opendata.cityofnewyork.us/) data from [this link](https://community-engineering-artifacts.s3.us-west-2.amazonaws.com/dagster-university/data/taxi_zones.csv): `https://community-engineering-artifacts.s3.us-west-2.amazonaws.com/dagster-university/data/taxi_zones.csv`
+- Stores the data as a CSV in `data/raw/taxi_zones.csv`. This path is provided for you in `constants.TAXI_ZONES_FILE_PATH`.
+
+---
+
+## Check your work
+
+The asset you built should look similar to the following code. Click **View answer** to view it.
+
+**If there are differences**, compare what you wrote to the asset below and change them, as this asset will be used as-is in future lessons.
+
+```python {% obfuscated="true" %}
+# src/dagster_essentials/defs/assets/trips.py
+@dg.asset
+def taxi_zones_file() -> None:
+    """
+      The raw CSV file for the taxi zones dataset. Sourced from the NYC Open Data portal.
+    """
+    raw_taxi_zones = requests.get(
+        "https://community-engineering-artifacts.s3.us-west-2.amazonaws.com/dagster-university/data/taxi_zones.csv"
+    )
+
+    with open(constants.TAXI_ZONES_FILE_PATH, "wb") as output_file:
+        output_file.write(raw_taxi_zones.content)
+```
