@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: false
+---
+
 # Dagster University
 
 An educational platform with two independent parts: Dagster course projects (Python) and a course-content web app (Next.js).

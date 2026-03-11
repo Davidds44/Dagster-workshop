@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: false
+---
+
 # Course Pages: Conventions
 
 ## Frontmatter
