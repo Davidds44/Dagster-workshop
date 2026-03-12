@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: university
+    schema: main
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments
+

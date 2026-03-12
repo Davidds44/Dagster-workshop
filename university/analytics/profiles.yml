@@ -1,0 +1,8 @@
+university_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../university.duckdb
+      schema: main
+
